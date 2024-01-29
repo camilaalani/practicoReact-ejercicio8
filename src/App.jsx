@@ -5,7 +5,6 @@ import Formulario from "./components/Formulario";
 import { Container } from "react-bootstrap";
 
 function App() {
-  
   return (
     <>
       <Container>
