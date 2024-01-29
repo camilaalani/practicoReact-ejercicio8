@@ -61,6 +61,77 @@ function Formulario() {
       setEmail("");
       setCamposCompletos(true);
     };
+
+    return (
+        <div className="formulario">
+          <Form onSubmit={manejarEnvio}>
+            <Form.Group controlId="formNombre">
+              <Form.Label>Nombre:</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Ingrese su nombre"
+                value={nombre}
+                onChange={(e) => {
+                  setNombre(e.target.value);
+                  setMensajeError("");
+                }}
+              />
+            </Form.Group>
+    
+            <Form.Group controlId="formApellido">
+              <Form.Label className="mt-2">Apellido:</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Ingrese su apellido"
+                value={apellido}
+                onChange={(e) => {
+                  setApellido(e.target.value);
+                  setMensajeError("");
+                }}
+              />
+            </Form.Group>
+    
+            <Form.Group controlId="formDni">
+              <Form.Label className="mt-2">DNI:</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Ingrese su DNI"
+                value={dni}
+                onChange={(e) => {
+                  setDni(e.target.value);
+                  setMensajeError("");
+                }}
+              />
+            </Form.Group>
+    
+            <Form.Group controlId="formEmail">
+              <Form.Label className="mt-2">Email:</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="correo@correo.com"
+                value={email}
+                className="mb-3"
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  setMensajeError("");
+                }}
+              />
+            </Form.Group>
+    
+            {!camposCompletos && (
+              <Alert variant="danger">
+                Completar todos los campos del formulario.
+              </Alert>
+            )}
+    
+            {mensajeError && <Alert variant="danger">{mensajeError}</Alert>}
+    
+            <Button className="mt-3" variant="primary" type="submit">
+              Enviar
+            </Button>
+          </Form>
+        </div>
+      );
 }
 
 export default Formulario;
